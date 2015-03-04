@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :home do
     collection do
       post :receive
+      get :show_game
     end
   end
 end

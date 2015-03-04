@@ -7,12 +7,18 @@ class HomeController < ApplicationController
   end
 
   def index
-    things = @things.shuffle
-
-    @show_things = [things[0], things[1]]
+    @show_things = shuffle_list
 
     # render :nothing => true
   end
+
+
+  def show_game
+    @show_things = shuffle_list
+
+    render :file => 'home/ajax_list', :layout => false
+  end
+
 
 
   def receive
@@ -30,6 +36,12 @@ class HomeController < ApplicationController
   end
 
   private
+    def shuffle_list
+      things = @things.shuffle
+
+      [things[0], things[1]]
+    end
+
     def get_item(things, id)
       things.each do |thing|
         return {:id => id, :count => thing['count']} if thing['id'].to_i == id.to_i
