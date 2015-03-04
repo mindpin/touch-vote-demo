@@ -10,3 +10,4 @@
 
 1. bundle install
 2. rails s
+3. open http://localhost:3000
