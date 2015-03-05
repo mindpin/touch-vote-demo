@@ -4,6 +4,9 @@ class HomeController < ApplicationController
   def pre_load
     file = Rails.root.join('data/vote_item.yml').to_s
     @things = YAML.load_file(file)
+
+    @number = 3
+    @number = params[:number] if params[:number]
   end
 
   def index
@@ -41,7 +44,11 @@ class HomeController < ApplicationController
     def shuffle_list
       things = @things.shuffle
 
-      [things[0], things[1], things[2]]
+      list = []
+      @number.to_i.times do |index|
+        list << things[index]
+      end
+      list
     end
 
     def get_item(things, id)

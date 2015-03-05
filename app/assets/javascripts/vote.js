@@ -12,10 +12,11 @@ function is_correct_vote(check_items, select_item) {
 }
 
 function ajax_get_list() {
+  var number = $('#number').val()
   $.ajax({
     url : '/home/show_game',
     type: "GET",
-    data : '',
+    data : {'number': number},
     success: function(data, textStatus, jqXHR)
     {
       $('#list').html(data)
