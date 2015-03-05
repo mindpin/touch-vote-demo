@@ -14,6 +14,6 @@
 
 
 ## Setting
-如需要设置显示的个数，在地址栏后加 count=4 参数 <br />
-http://localhost:3000/?count=4 <br />
+如需要设置显示的个数，在地址栏后加 number=4 参数 <br />
+http://localhost:3000/?number=4 <br />
 默认是显示 3 个
