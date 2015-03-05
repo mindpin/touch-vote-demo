@@ -1,60 +1,60 @@
 --- 
 - id: 1
-  name: Australia1
-  data: test data1
+  name: 其实我啊，相信写真
+  data: {"pic":"img5.douban.com/mpic/s27980338.jpg","author":"荒木经惟"}
   count: 123
 
 - id: 2
-  name: Australia2
-  data: test data2
+  name: 狼图腾
+  data: {"pic":"img3.douban.com/mpic/s27985470.jpg","author":"安德鲁"}
   count: 222
 
 
 - id: 3
-  name: Australia3
-  data: test data3
+  name:  从0到1
+  data: {"pic":"img3.douban.com/mpic/s28012945.jpg","author":"彼得·蒂尔"}
   count: 546
 
 
 
 - id: 4
-  name: Australia4
-  data: test data4
+  name: 士大夫政治演生史稿
+  data: {"pic":"img3.douban.com/mpic/s28007792.jpg","author":"阎步克"}
   count: 245
 
 
 
 - id: 5
-  name: Australia5
-  data: test data5
+  name: 我们到底应该怎么吃
+  data: {"pic":"img3.douban.com/mpic/s27974820.jpg","author":"顾中一"}
   count: 567
 
 
 
 - id: 6
-  name: Australia6
-  data: test data6
+  name: 奇面馆事件
+  data: {"pic":"img5.douban.com/mpic/s27992287.jpg","author":"绫辻行人"}
   count: 321
 
 
 
 - id: 7
-  name: Australia7
-  data: test data7
+  name: 万达哲学
+  data: {"pic":"img5.douban.com/mpic/s27984569.jpg","author":"王健林"}
   count: 120
 
 
 
 - id: 8
-  name: Australia8
-  data: test data8
+  name: 约婚夫妇的故事
+  data: {"pic":"img3.douban.com/mpic/s27985584.jpg","author":"马可"}
   count: 56
 
 
 
 - id: 9
-  name: Australia9
-  data: test data9
+  name: 权力与领导
+  data: {"pic":"img3.douban.com/mpic/s27970605.jpg","author":"克劳"}
   count: 33
 
 

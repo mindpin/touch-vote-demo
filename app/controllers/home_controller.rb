@@ -9,6 +9,8 @@ class HomeController < ApplicationController
   def index
     @show_things = shuffle_list
 
+    # p @show_things
+
     # render :nothing => true
   end
 
@@ -39,7 +41,7 @@ class HomeController < ApplicationController
     def shuffle_list
       things = @things.shuffle
 
-      [things[0], things[1]]
+      [things[0], things[1], things[2]]
     end
 
     def get_item(things, id)

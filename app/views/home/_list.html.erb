@@ -1,6 +1,7 @@
 <ul>
 <% show_things.each do |thing| %>
   <li>
+    <img src="<%= 'http://' + thing['data']['pic'] %>" />
     <a href="javascript: void(0);" class='select' data-id="<%= thing['id'] %>"><%= thing['name'] %>, count: <%= thing['count'] %></a>
     <input type="hidden" name="things[]" value="<%= thing['id'] %>" />
   </li>
