@@ -57,15 +57,18 @@ $(document).on('click', '.select', function(){
       select_item = data['select_item']
 
       if (is_correct_vote(check_items, select_item)) {
+        $('#game-notice').hide()
         current_level += 1
         ajax_get_list()
         $('#level').html(current_level)
       } else {
-        alert('答错了, 重来')
-
+        // alert('答错了, 重来')
+        $('#game-notice').show()
         current_level = 1
-        $('#level').html(current_level)
-        ajax_get_list()
+        $('#list').html('')
+
+        // $('#level').html(current_level)
+        // ajax_get_list()
       }
 
     },
