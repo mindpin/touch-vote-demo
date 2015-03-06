@@ -2,17 +2,32 @@ class HomeController < ApplicationController
   before_filter :pre_load
 
   def pre_load
-    file = Rails.root.join('data/vote_item.yml').to_s
-    @things = YAML.load_file(file)
+    @type = 'vote'
+    @compare = 'count'
+    @number = 2
 
-    @number = 3
+    @type = params['type'] if params['type']
+    @compare = params['compare'].strip if params['compare']
     @number = params[:number] if params[:number]
+
+    p params['compare']
+    p @compare
+    p '===='
+
+    # @type = 'weibo'
+    # @compare_count = ['weibo_count', 'fans_count']
+
+    # file = Rails.root.join('data/vote_item.yml').to_s
+    file = Rails.root.join("data/#{@type}.yml").to_s
+    @things = YAML.load_file(file)
   end
 
   def index
     @show_things = shuffle_list
 
     # p @show_things
+
+    # p @things.first
 
     # render :nothing => true
   end
@@ -52,8 +67,10 @@ class HomeController < ApplicationController
     end
 
     def get_item(things, id)
+      compare_count = @compare.split(',')
+      p compare_count
       things.each do |thing|
-        return {:id => id, :count => thing['count']} if thing['id'].to_i == id.to_i
+        return {:id => id, :count => thing[compare_count[0]]} if thing['id'].to_s == id.to_s
       end
       return nil
     end

@@ -1,0 +1,12 @@
+
+<ul>
+<% show_things.each do |thing| %>
+  <li>
+    <img src="<%= thing['avatar'] %>" />
+    <a href="javascript: void(0);" class='select' data-id="<%= thing['id'] %>"><%= thing['desc'] %>, <%= thing['name'] %>, weibo_count: <%= thing['weibo_count'] %>
+      , fans_count: <%= thing['fans_count'] %>
+    </a>
+    <input type="hidden" name="things[]" value="<%= thing['id'] %>" />
+  </li>
+<% end %>
+</ul>

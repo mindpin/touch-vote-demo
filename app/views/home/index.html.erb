@@ -2,7 +2,14 @@
 
 <p>当前在关数: <span id="level">1</span></p>
 
+
+<input type="hidden" id="number" value="<%= @number %>" />
+  <input type="hidden" id="compare" value="<%= @compare %>" />
+  <input type="hidden" id="type" value="<%= @type %>" />
+
 <div id="list">
-  <%= render 'home/list', :show_things => @show_things %>
+  
+
+  <%= show_list(@type, @show_things) %>
 </div>
 

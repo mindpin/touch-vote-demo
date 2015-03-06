@@ -1,5 +1,6 @@
 function is_correct_vote(check_items, select_item) {
   select_item_count = select_item['count']
+  alert(select_item_count)
 
   for (var i = 0; i < check_items.length; i++) {
     item = check_items[i]
@@ -13,10 +14,15 @@ function is_correct_vote(check_items, select_item) {
 
 function ajax_get_list() {
   var number = $('#number').val()
+  var compare = $('#compare').val()
+  var type = $('#type').val()
+
+  alert(compare)
+
   $.ajax({
     url : '/home/show_game',
     type: "GET",
-    data : {'number': number},
+    data : {'number': number, 'type': type, 'compare': compare},
     success: function(data, textStatus, jqXHR)
     {
       $('#list').html(data)
@@ -31,6 +37,12 @@ function ajax_get_list() {
 
 var current_level = 1
 $(document).on('click', '.select', function(){
+
+  var number = $('#number').val()
+  var compare = $('#compare').val()
+  var type = $('#type').val()
+
+  // alert(compare)
 
   
   select_item = $(this).data('id')
@@ -48,7 +60,14 @@ $(document).on('click', '.select', function(){
   $.ajax({
     url : '/home/receive',
     type: "POST",
-    data : {'check_items': things, 'select_item': select_item},
+    data : {
+      'check_items': things, 
+      'select_item': select_item, 
+      'number': number, 
+      'type': type, 
+      'compare': compare
+    },
+
     success: function(data, textStatus, jqXHR)
     {
       // alert(data)
