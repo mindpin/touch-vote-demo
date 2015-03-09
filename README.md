@@ -18,7 +18,7 @@
 2. 创建相应的 view, 比如上传的yaml文件名为 weibo.yml ，则在 home view 下创建一个 _weibo_list.html.erb, 显示相应的字段
 3. http://localhost:3000/home?number=3&type=book&compare=count
 
-# url 参数说明
+### url 参数说明
 1. number: 要显示的条目数量
 2. type: 上传的 yml 文件名
 3. compare: 要比较的字段，如果是多个用逗号隔开, etc: http://localhost:3000/home?number=3&type=book&compare=fans_count,weibo_count
