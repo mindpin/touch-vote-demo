@@ -1,6 +1,6 @@
 function is_correct_vote(check_items, select_item) {
   select_item_count = select_item['count']
-  alert(select_item_count)
+  // alert(select_item_count)
 
   for (var i = 0; i < check_items.length; i++) {
     item = check_items[i]
@@ -82,19 +82,20 @@ $(document).on('click', '.select', function(){
         window.setTimeout(function(){
           current_level += 1
           $('#level').html(current_level)
-          ajax_get_list()
           $('#game-correct-notice').hide()
+
+          ajax_get_list()
+          
         }, 2000);
 
       } else {
         // alert('答错了, 重来')
         $('#game-correct-notice').hide()
         $('#game-error-notice').show()
+
+        $('li a').removeAttr("href");
         current_level = 1
         // $('#list').html('')
-        ajax_get_list(false)
-
-        // $('#level').html(current_level)
         // ajax_get_list()
       }
 

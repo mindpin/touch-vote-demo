@@ -1,6 +1,7 @@
 <p><a href="/">返回游戏首页</a></p>
 
-<p id="game-error-notice" style="display:none;font-size: 14px; color: red;">答错了, <a href="/home">确定重来</a></p>
+<p id="game-error-notice" style="display:none;font-size: 14px; color: red;">答错了, 
+  <a href="/home?number=<%= @number %>&type=<%= @type %>&compare=<%= @compare %>">确定重来</a></p>
 <p id="game-correct-notice" style="display:none;font-size: 14px; color: green;">正确, 请稍等 2 秒, 会自动进入下一关</p>
 
 <p>当前在关数: <span id="level">1</span></p>
@@ -11,6 +12,6 @@
 <input type="hidden" id="type" value="<%= @type %>" />
 
 <div id="list">
-  <%= show_list(@type, @show_things, 'true') %>
+  <%= show_list(@type, @show_things) %>
 </div>
 

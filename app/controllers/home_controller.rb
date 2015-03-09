@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_filter :pre_load
 
   def pre_load
-    @type = 'vote'
+    @type = 'book'
     @compare = 'count'
     @number = 2
 
@@ -34,15 +34,7 @@ class HomeController < ApplicationController
 
 
   def show_game
-    # p params[:result]
-    # p params[:result].class
-
-    # render :nothing => true
     @show_things = shuffle_list
-    @result = params[:result]
-
-    p @result
-    p '===='
 
     render :file => 'home/ajax_list', :layout => false
   end
@@ -75,8 +67,8 @@ class HomeController < ApplicationController
     end
 
     def get_item(things, id)
-      compare_count = @compare.split(',')
-      p compare_count
+      compare_count = @compare.split(',').shuffle
+      # p compare_count
       things.each do |thing|
         return {:id => id, :count => thing[compare_count[0]]} if thing['id'].to_s == id.to_s
       end
