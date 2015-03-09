@@ -1,8 +1,8 @@
 # touch-vote-demo
 
-需求来源: 
-https://github.com/mindpin/TouchIdea/issues/1
-https://github.com/arlyxiao/touch-vote-demo/issues/2
+## 需求来源
+1. https://github.com/mindpin/TouchIdea/issues/1
+2. https://github.com/arlyxiao/touch-vote-demo/issues/2
 
 
 
