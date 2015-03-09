@@ -70,7 +70,7 @@ class HomeController < ApplicationController
       compare_count = @compare.split(',').shuffle
       # p compare_count
       things.each do |thing|
-        return {:id => id, :count => thing[compare_count[0]]} if thing['id'].to_s == id.to_s
+        return {:id => id, :count => thing[compare_count[0].strip]} if thing['id'].to_s == id.to_s
       end
       return nil
     end
