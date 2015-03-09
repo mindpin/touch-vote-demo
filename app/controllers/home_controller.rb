@@ -10,9 +10,9 @@ class HomeController < ApplicationController
     @compare = params['compare'].strip if params['compare']
     @number = params[:number] if params[:number]
 
-    p params['compare']
-    p @compare
-    p '===='
+    # p params['compare']
+    # p @compare
+    # p '===='
 
     # @type = 'weibo'
     # @compare_count = ['weibo_count', 'fans_count']
@@ -34,7 +34,15 @@ class HomeController < ApplicationController
 
 
   def show_game
+    # p params[:result]
+    # p params[:result].class
+
+    # render :nothing => true
     @show_things = shuffle_list
+    @result = params[:result]
+
+    p @result
+    p '===='
 
     render :file => 'home/ajax_list', :layout => false
   end

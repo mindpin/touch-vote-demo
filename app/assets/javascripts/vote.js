@@ -12,17 +12,17 @@ function is_correct_vote(check_items, select_item) {
   return true
 }
 
-function ajax_get_list() {
+function ajax_get_list(result = true) {
   var number = $('#number').val()
   var compare = $('#compare').val()
   var type = $('#type').val()
 
-  alert(compare)
+  // alert(compare)
 
   $.ajax({
     url : '/home/show_game',
     type: "GET",
-    data : {'number': number, 'type': type, 'compare': compare},
+    data : {'number': number, 'type': type, 'compare': compare, 'result': result},
     success: function(data, textStatus, jqXHR)
     {
       $('#list').html(data)
@@ -76,15 +76,23 @@ $(document).on('click', '.select', function(){
       select_item = data['select_item']
 
       if (is_correct_vote(check_items, select_item)) {
-        $('#game-notice').hide()
-        current_level += 1
-        ajax_get_list()
-        $('#level').html(current_level)
+        $('#game-error-notice').hide()
+        $('#game-correct-notice').show()
+        
+        window.setTimeout(function(){
+          current_level += 1
+          $('#level').html(current_level)
+          ajax_get_list()
+          $('#game-correct-notice').hide()
+        }, 2000);
+
       } else {
         // alert('答错了, 重来')
-        $('#game-notice').show()
+        $('#game-correct-notice').hide()
+        $('#game-error-notice').show()
         current_level = 1
-        $('#list').html('')
+        // $('#list').html('')
+        ajax_get_list(false)
 
         // $('#level').html(current_level)
         // ajax_get_list()

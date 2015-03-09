@@ -4,8 +4,13 @@
 <% show_things.each do |thing| %>
   <li>
     <img src="<%= 'http://' + thing['data']['pic'] %>" />
+
+    <% if result == 'true' %>
     <a href="javascript: void(0);" class='select' data-id="<%= thing['id'] %>"><%= thing['data']['author'] %>, <%= thing['name'] %>, count: <%= thing['count'] %></a>
     <input type="hidden" name="things[]" value="<%= thing['id'] %>" />
+    <% else %>
+    <%= thing['data']['author'] %>, <%= thing['name'] %>, count: <%= thing['count'] %>
+    <% end %>
   </li>
 <% end %>
 </ul>
