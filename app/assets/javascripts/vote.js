@@ -12,7 +12,10 @@ function is_correct_vote(check_items, select_item) {
   return true
 }
 
-function ajax_get_list(result = true) {
+function ajax_get_list(result) {
+  result = typeof result !== 'undefined' ? result : true;
+
+
   var number = $('#number').val()
   var compare = $('#compare').val()
   var type = $('#type').val()
