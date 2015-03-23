@@ -46,3 +46,12 @@ end
 
 gem 'mongoid'
 
+
+
+group :production do
+  gem 'rails_stdout_logging'
+end
+
+
+
+
