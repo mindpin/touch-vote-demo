@@ -1,12 +1,17 @@
 
-<ul>
-<% show_things.each do |thing| %>
-  <li>
-    <img src="<%= 'http://' + thing['data']['pic'] %>" />
+<table>
+  <tr>
+<% compare_list.each do |thing| %>
+  
+  <td>
+    <a href="javascript: void(0);" class='select' data-id="<%= thing['id'] %>"><img src="<%= 'http://' + thing['data']['pic'] %>" /></a>
 
-    <a href="javascript: void(0);" class='select' data-id="<%= thing['id'] %>"><%= thing['data']['author'] %>, <%= thing['name'] %>, count: <%= thing['count'] %></a>
+    
+    <%#= thing['data']['author'] %> <%#= thing['name'] %> 
+    <p>count: <%= thing['count'] %></p>
     <input type="hidden" name="things[]" value="<%= thing['id'] %>" />
 
-  </li>
+  </td>
 <% end %>
-</ul>
+  </tr>
+</table>

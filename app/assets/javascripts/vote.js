@@ -17,15 +17,18 @@ function ajax_get_list(result) {
 
 
   var number = $('#number').val()
-  var compare = $('#compare').val()
+  var prepare_fields = $('#prepare_fields').val()
   var type = $('#type').val()
-
-  // alert(compare)
 
   $.ajax({
     url : '/home/show_game',
     type: "GET",
-    data : {'number': number, 'type': type, 'compare': compare, 'result': result},
+    data : {
+      'number': number, 
+      'type': type, 
+      'prepare_fields': prepare_fields
+    },
+
     success: function(data, textStatus, jqXHR)
     {
       $('#list').html(data)
@@ -42,8 +45,9 @@ var current_level = 1
 $(document).on('click', '.select', function(){
 
   var number = $('#number').val()
-  var compare = $('#compare').val()
+  var prepare_fields = $('#prepare_fields').val()
   var type = $('#type').val()
+  var compare_field = $('#compare_field').val()
 
   // alert(compare)
 
@@ -68,7 +72,8 @@ $(document).on('click', '.select', function(){
       'select_item': select_item, 
       'number': number, 
       'type': type, 
-      'compare': compare
+      'prepare_fields': prepare_fields,
+      'compare_field': compare_field
     },
 
     success: function(data, textStatus, jqXHR)
@@ -81,12 +86,13 @@ $(document).on('click', '.select', function(){
       if (is_correct_vote(check_items, select_item)) {
         $('#game-error-notice').hide()
         $('#game-correct-notice').show()
+        $('li a').removeAttr("href");
         
         window.setTimeout(function(){
           current_level += 1
           $('#level').html(current_level)
           $('#game-correct-notice').hide()
-
+          
           ajax_get_list()
           
         }, 2000);

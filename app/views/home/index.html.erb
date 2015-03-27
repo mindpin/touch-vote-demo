@@ -1,17 +1,26 @@
+<style type="text/css">
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    background-color: #b0e0e6;
+}
+</style>
+
 <p><a href="/">返回游戏首页</a></p>
 
 <p id="game-error-notice" style="display:none;font-size: 14px; color: red;">答错了, 
-  <a href="/home?number=<%= @number %>&type=<%= @type %>&compare=<%= @compare %>">确定重来</a></p>
+  <a href="/home?number=<%= @number %>&type=<%= @type %>&prepare_fields=<%= @prepare_fields %>">确定重来</a></p>
 <p id="game-correct-notice" style="display:none;font-size: 14px; color: green;">正确, 请稍等 2 秒, 会自动进入下一关</p>
 
 <p>当前在关数: <span id="level">1</span></p>
 
 
 <input type="hidden" id="number" value="<%= @number %>" />
-<input type="hidden" id="compare" value="<%= @compare %>" />
+<input type="hidden" id="prepare_fields" value="<%= @prepare_fields %>" />
 <input type="hidden" id="type" value="<%= @type %>" />
 
-<div id="list">
-  <%= show_list(@type, @show_things) %>
+<div id="list" class="well center">
+  <%= render 'home/ajax_list' %>
 </div>
 

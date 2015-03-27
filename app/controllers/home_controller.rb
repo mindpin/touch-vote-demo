@@ -3,12 +3,13 @@ class HomeController < ApplicationController
 
   def pre_load
     @type = 'book'
-    @compare = 'count'
+    @prepare_fields = 'count'
     @number = 2
 
     @type = params['type'] if params['type']
-    @compare = params['compare'].strip if params['compare']
+    @prepare_fields = params['prepare_fields'].strip if params['prepare_fields']
     @number = params[:number] if params[:number]
+    @compare_field = params['compare_field'].strip if params['compare_field']
 
     # p params['compare']
     # p @compare
@@ -23,20 +24,18 @@ class HomeController < ApplicationController
   end
 
   def index
-    @show_things = shuffle_list
-
-    # p @show_things
-
-    # p @things.first
+    @compare_list = shuffle_list
+    @compare_field = @prepare_fields.split(',').shuffle[0].strip
 
     # render :nothing => true
   end
 
 
   def show_game
-    @show_things = shuffle_list
+    @compare_list = shuffle_list
+    @compare_field = @prepare_fields.split(',').shuffle[0].strip
 
-    render :file => 'home/ajax_list', :layout => false
+    render :file => 'home/_ajax_list', :layout => false
   end
 
 
@@ -51,7 +50,10 @@ class HomeController < ApplicationController
     # p check_items
     # p select_item
 
-    render :json => {:check_items => check_items.compact, :select_item => select_item}
+    render :json => {
+      :check_items => check_items.compact, 
+      :select_item => select_item
+    }
     # render :nothing => true
   end
 
@@ -67,10 +69,10 @@ class HomeController < ApplicationController
     end
 
     def get_item(things, id)
-      compare_count = @compare.split(',').shuffle
-      # p compare_count
       things.each do |thing|
-        return {:id => id, :count => thing[compare_count[0].strip]} if thing['id'].to_s == id.to_s
+        if thing['id'].to_s == id.to_s
+          return {:id => id, :count => thing[@compare_field]}
+        end
       end
       return nil
     end

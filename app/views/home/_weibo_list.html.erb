@@ -1,16 +1,21 @@
-<ul>
-<% show_things.each do |thing| %>
-  <li>
-    <img src="<%= thing['avatar'] %>" />
+<table>
+  <tr>
+<% compare_list.each do |thing| %>
+  <td>
+    <a href="javascript: void(0);" class='select' data-id="<%= thing['id'] %>"><img src="<%= thing['avatar'] %>" /></a>
 
     
-    <a href="javascript: void(0);" class='select' data-id="<%= thing['id'] %>">
-      <%= thing['desc'] %>, <%= thing['name'] %>, weibo_count: <%= thing['weibo_count'] %>
-      , fans_count: <%= thing['fans_count'] %>
+    
+      <%#= thing['desc'] %>  <%#= thing['name'] %>
+      <p>
+       weibo_count: <%= thing['weibo_count'] %> <br />
+       fans_count: <%= thing['fans_count'] %>
+     </p>
     </a>
 
     <input type="hidden" name="things[]" value="<%= thing['id'] %>" />
     
-  </li>
+  </td>
 <% end %>
-</ul>
+  </tr>
+</table>
