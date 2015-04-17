@@ -45,7 +45,7 @@ end
 
 
 gem 'mongoid'
-gem 'rails_admin'
+# gem 'rails_admin'
 
 
 
