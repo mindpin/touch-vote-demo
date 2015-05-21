@@ -2,7 +2,7 @@
 
 ## 需求来源
 1. https://github.com/mindpin/TouchIdea/issues/1
-2. https://github.com/arlyxiao/touch-vote-demo/issues/2
+2. https://github.com/mindpin/touch-vote-demo/issues/2
 
 
 
